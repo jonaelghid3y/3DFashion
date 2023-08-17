@@ -15,10 +15,10 @@ const Configurator = () => {
         shoeFemale, setShoeFemale,
     } = useCostumize();
 
-    const generateConfigSection = (title, items, activeItem, setItem) => {
+    const generateConfigSection = (titleIconId, items, activeItem, setItem, ) => {
         return (
             <section className="configuratorSection">
-                <div className="configuratorSectionTitle">{title}</div>
+                <div className="configuratorSectionTitle" id={titleIconId}></div>
                 <div className="configuratorSectionValues">
                     {items.map((item, index) => (
                         <div key={index} className={`item ${activeItem === index + 1 ? "item--active" : ""}`} onClick={() => setItem(index + 1)}>
@@ -52,19 +52,19 @@ const Configurator = () => {
 
             {model === 1 && (
                 <>
-                    {generateConfigSection("Hat", [{ label: "None" }, { label: "Scarf" }], hatFemale, setHatFemale)}
-                    {generateConfigSection("Jacket", [{ label: "Broly Sweater" }, { label: "Jeans vest" }], jacketFemale, setJacketFemale)}
-                    {generateConfigSection("Pants", [{ label: "Cargo pants" }, { label: "Jeans" }], pantsFemale, setPantsFemale)}
-                    {generateConfigSection("Shoe", [{ label: "Nike Airforce" }, { label: "Nike Dunks" }], shoeFemale, setShoeFemale)}
+                    {generateConfigSection("hatTitle", [{ label: "None" }, { label: "Scarf" }], hatFemale, setHatFemale)}
+                    {generateConfigSection("jackaTitle", [{ label: "Broly Sweater" }, { label: "Jeans vest" }], jacketFemale, setJacketFemale)}
+                    {generateConfigSection("byxTitle", [{ label: "Cargo pants" }, { label: "Jeans" }], pantsFemale, setPantsFemale)}
+                    {generateConfigSection("skoTitle", [{ label: "Nike Airforce" }, { label: "Nike Dunks" }], shoeFemale, setShoeFemale)}
                 </>
             )}
 
             {model === 2 && (
                 <>
-                    {generateConfigSection("Hat", [{ label: "None" }, { label: "Beenie" }], hatMale, setHatMale)}
-                    {generateConfigSection("Jacket", [{ label: "Hoodie" }, { label: "Sweater" }], jacketMale, setJacketMale)}
-                    {generateConfigSection("Pants", [{ label: "Byxa 1" }, { label: "Cargo" }], pantsMale, setPantsMale)}
-                    {generateConfigSection("Shoe", [{ label: "Boots" }, { label: "Dr.Martin" }], shoeMale, setShoeMale)}
+                    {generateConfigSection("hatTitle", [{ label: "None" }, { label: "Beenie" }], hatMale, setHatMale)}
+                    {generateConfigSection("jackaTitle", [{ label: "Hoodie" }, { label: "Sweater" }], jacketMale, setJacketMale)}
+                    {generateConfigSection("byxTitle", [{ label: "Byxa 1" }, { label: "Cargo" }], pantsMale, setPantsMale)}
+                    {generateConfigSection("skoTitle", [{ label: "Boots" }, { label: "Dr.Martin" }], shoeMale, setShoeMale)}
                 </>
             )}
         </div>
