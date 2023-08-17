@@ -4,11 +4,13 @@ import { MeshBasicMaterial, MeshNormalMaterial } from "three";
 import { useCostumize } from "../Context/Costumize";
 
 import { Model4 } from "./Model4";
+
 import { Effects } from "@react-three/drei";
 import { Environment } from "@react-three/drei";
 import { Lightformer } from "@react-three/drei";
 import { Suspense } from "react";
 import { EarthModel } from "./EarthModel";
+import { Model } from "./Model";
 
 
 const Experience = () => {
@@ -21,22 +23,20 @@ const Experience = () => {
             {/* <OrbitControls/> */}
             <Suspense fallback={null}>
                 <ambientLight />
-                <directionalLight intensity={10} />
+                <directionalLight intensity={5} />
                 <Environment path="/Cube" />
 
-                <mesh position={[0, -15, 0]}>
-                    <EarthModel/>
-                </mesh>
+              
                
 
                 <PresentationControls
-                   speed={1.5} global zoom={1} polar={[0, Math.PI / 10]}
+                   speed={1.5} global zoom={1.1} polar={[0, Math.PI / 10]}
                     touch-action={"none"}
                 >
-                    <mesh position={[0, -10, 0]} scale={2.5} >
+                    <mesh position={[0, -10.5, 0]} scale={3} rotation={[0.05,0,0]} >
 
 
-                        <Model4 />
+                        <Model/>
 
 
 
@@ -44,24 +44,16 @@ const Experience = () => {
 
 
 
-                    <mesh rotation={[-Math.PI / 2, 0, 0]} position-y={-10}>
+                    <mesh rotation={[-Math.PI / 2, 0, 0]} position-y={-10.6}>
 
-                        <planeGeometry  args={[170, 170]} />
-                        <MeshReflectorMaterial
-                            blur={[0, 0]}
-                            resolution={1200}
-                            mixBlur={4}
-                            mixStrength={20}
-                            roughness={1}
-                            depthScale={1.2}
-                            minDepthThreshold={0.4}
-                            maxDepthThreshold={1.4}
-                            color="#101010"
-                            metalness={0.2}
-                            side={2}
-                        />
+                        <planeGeometry  args={[170, 100]}  />
+                        <meshBasicMaterial side={2} color="#383838"/>
+                        
                     </mesh>
+                    
+                    
                 </PresentationControls>
+                
             </Suspense>
 
         </>

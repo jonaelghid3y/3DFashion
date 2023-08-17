@@ -24,7 +24,7 @@
   position: absolute;
   right: 200px;
   width: 320px;
-  top: 120vh;
+  top: 20vh;
   color: white;
   padding: 16px;
   display: flex;
@@ -49,6 +49,40 @@ border: 1px solid rgba(0, 0, 0, 0.3);
   font-size: 20px;
 
 }
+#byxTitle
+{
+  background-image: url(/public/9069190_clothes_pants_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+}
+#jackaTitle{
+  background-image: url(/public/Cube/9069240_clothes_crew_neck_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+
+}
+#skoTitle{
+
+  background-image: url(/public/9069520_clothes_skates_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+
+}
+#hatTitle{
+
+  background-image: url(/public/9069419_straw_hat_icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+
+}
 .configuratorSectionValues{
  
   width: 250px;
@@ -67,10 +101,36 @@ border: 1px solid rgba(0, 0, 0, 0.3);
 
 }
 .itemDot{
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border-radius: 100%;
   border: solid 2px rgb(132, 124, 124)
+}
+
+#maleIcon{
+  background-image: url(/public/9057084_gender_male_icon.png);
+  background-size: contain;
+  
+}
+#femaleIcon{
+
+  background-image: url(/public/9057085_gender_female_icon.png);
+  background-size: contain;
+
+}
+#femaleHatIcon{
+  background-image: url(https://cdn3.iconfinder.com/data/icons/hats-color/200/16-512.png);
+ 
+  background-size: 28px 28px;
+  
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+#femaleHatIcon2{
+  background-image: url(/public/9484849_braids_hairstyle_children_haircut_salon_icon.png);
+  background-size: cover;
+  
 }
 
 .item {

@@ -1,9 +1,11 @@
 import './App.css'
+import { CostumizeProvider } from './Context/Costumize'
 import Configurator from './Components/Configurator'
 import Experience from './Components/Experience'
 import { useState } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { CostumizeProvider } from './Context/Costumize'
+import {motion, AnimatePresence } from 'framer-motion' 
+
 import { OrbitControls, Html, Text, ScrollControls, Scroll } from '@react-three/drei'
 import { ScrollManager } from './Components/ScrollManager'
 import Header from './Components/Header'
@@ -17,16 +19,35 @@ function App() {
   return (
     <CostumizeProvider>
       <div className='App'>
+    
+      <AnimatePresence>
+      {section === 1 && (
+        <motion.div 
+          initial={{ opacity: 0 }}     // Initial state: fully transparent
+          animate={{ opacity: 1 }}     // End state: fully opaque
+          exit={{ opacity: 0 }}        // Exit animation: fade out
+          transition={{ duration: 2 }} // Duration of the transition in seconds
+        >
+          <Configurator />
+        </motion.div>
+      )}
+    </AnimatePresence>
+    
+     
         <Canvas >
           <ScrollControls pages={3} damping={0.1}>
             <ScrollManager section={section} onSectionChange={setSection} />
             <color attach="background" args={["#101010"]} />
             <fog attach="fog" args={['#101010', 5, 25]} />
+            
+            
 
             <Scroll html>
               <Header />
-              <Configurator />
+              
+              
               <AboutText/>
+             
               
              
             </Scroll>
@@ -50,6 +71,7 @@ function App() {
 
           </ScrollControls>
         </Canvas>
+        
 
 
 

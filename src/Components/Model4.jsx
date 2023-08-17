@@ -1,99 +1,340 @@
-
 import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import { useGLTF, useAnimations } from "@react-three/drei";
+import { useControls } from 'leva';
+import { useCostumize } from "../Context/Costumize";
+
 
 export function Model4(props) {
-  const { nodes, materials } = useGLTF("/KILLEN2.glb");
+  const group = useRef();
+  const { nodes, materials, animations } = useGLTF("/KLAR3.glb");
+  const { actions } = useAnimations(animations, group);
+
+  const {
+      
+    model,
+    setModel,
+    hatMale,
+    setHatMale,
+    jacketMale,
+    setJackMale,
+    pantsMale,
+    setPantsMale,
+    shoeMale,
+    setShoeMale,
+    hatFemale,
+    setHatFemale,
+    jacketFemale,
+    setJacketFemale,
+    pantsFemale,
+    setPantsFemale,
+    shoeFemale,
+    setShoeFemale,
+
+}
+ = useCostumize()
+ const context = useCostumize();
+ console.log(context)
+ 
   return (
-    <group {...props} dispose={null}>
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Body_AV02.geometry}
-        material={materials.AV02_Skin}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.A03_Beanie.geometry}
-        material={materials["M03-B_Wool (Ribbed)"]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.B06_Cargos001.geometry}
-        material={materials["M01-B_Cotton (Khaki).001"]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.F06_Hiking_Boots.geometry}
-        material={materials["F06_Hiking Boots"]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.T20_Sweater.geometry}
-        material={materials["M03-D_Wool (Knitted)"]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.T17_Tactical_Vest_Detail_Mesh001_1.geometry}
-        material={materials["M02-A_Nylon (Dark Grey.001"]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.T17_Tactical_Vest_Detail_Mesh001_2.geometry}
-        material={materials["M02-D_Nylon (Strap).002"]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.T17_Tactical_Vest_Detail_Mesh001_3.geometry}
-        material={materials["M02-B_Nylon (RipStop - Black).001"]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.T17_Tactical_Vest_Detail_Mesh001_4.geometry}
-        material={materials["TRIM_Zipper 01 (Black).002"]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.T17_Tactical_Vest_Detail_Mesh001_5.geometry}
-        material={materials["TRIM_Stitching 01.001"]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.T17_Tactical_Vest_Detail_Mesh001_6.geometry}
-        material={materials["M07-C_Metal-Chrome.005"]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.T17_Tactical_Vest_Detail_Mesh001_7.geometry}
-        material={materials["TRIM_Buckle 01.001"]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.T17_Tactical_Vest_Detail_Mesh001_8.geometry}
-        material={materials["TRIM_Buckle (Side).001"]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.T17_Tactical_Vest_Detail_Mesh001_9.geometry}
-        material={materials["TRIM_Buckle 02.001"]}
-      />
+    <group ref={group} {...props} dispose={null}>
+      <group name="Scene">
+        <group name="Armature" rotation={[Math.PI / 2, 0, 0]} scale={1.005}>
+          <primitive object={nodes.mixamorigHips} />
+        </group>
+        <group name="Armature_AV02" rotation={[Math.PI / 2, 0, 0]}>
+          <primitive object={nodes.mixamorigHips_1} />
+        </group>
+        <skinnedMesh
+          name="T-Air_Max2"
+          geometry={nodes["T-Air_Max2"].geometry}
+          material={materials["F04_Air Max"]}
+          skeleton={nodes["T-Air_Max2"].skeleton}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={1.005}
+          visible={shoeFemale === 1}
+          
+        />
+        <skinnedMesh
+          name="T-Dunks1"
+          geometry={nodes["T-Dunks1"].geometry}
+          material={materials.F01_Dunks}
+          skeleton={nodes["T-Dunks1"].skeleton}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={1.005}
+          visible={model === 1 && shoeFemale === 2}
+        />
+        <skinnedMesh
+          name="T-Hair1"
+          geometry={nodes["T-Hair1"].geometry}
+          material={materials.AV03_Hair}
+          skeleton={nodes["T-Hair1"].skeleton}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={1.005}
+        />
+        <skinnedMesh
+          name="T-Headscarf2"
+          geometry={nodes["T-Headscarf2"].geometry}
+          material={materials["M09-B_Silk Print (01).002"]}
+          skeleton={nodes["T-Headscarf2"].skeleton}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={1.005}
+          visible={false}
+        />
+        <skinnedMesh
+          name="T-Necklace1"
+          geometry={nodes["T-Necklace1"].geometry}
+          material={materials.PaletteMaterial001}
+          skeleton={nodes["T-Necklace1"].skeleton}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={1.005}
+        />
+        <skinnedMesh
+          name="T-Overalls2"
+          geometry={nodes["T-Overalls2"].geometry}
+          material={materials["M04-B_Denim.001"]}
+          skeleton={nodes["T-Overalls2"].skeleton}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={1.005}
+        />
+        <skinnedMesh
+          name="T-Piercing"
+          geometry={nodes["T-Piercing"].geometry}
+          material={materials.PaletteMaterial002}
+          skeleton={nodes["T-Piercing"].skeleton}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={1.005}
+        />
+        <skinnedMesh
+          name="T-Thong2"
+          geometry={nodes["T-Thong2"].geometry}
+          material={materials["M01-A_Cotton (Light Grey).004"]}
+          skeleton={nodes["T-Thong2"].skeleton}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={1.005}
+        />
+        <group
+          name="T-Zipper_Vest2"
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={1.005}
+        >
+          <skinnedMesh
+            name="T24_Zipper_Vest_Detail_Mesh"
+            geometry={nodes.T24_Zipper_Vest_Detail_Mesh.geometry}
+            material={materials["M02-C_Nylon (Aqua).001"]}
+            skeleton={nodes.T24_Zipper_Vest_Detail_Mesh.skeleton}
+          />
+          <skinnedMesh
+            name="T24_Zipper_Vest_Detail_Mesh_1"
+            geometry={nodes.T24_Zipper_Vest_Detail_Mesh_1.geometry}
+            material={materials["M02-C_Nylon (Navy).001"]}
+            skeleton={nodes.T24_Zipper_Vest_Detail_Mesh_1.skeleton}
+          />
+          <skinnedMesh
+            name="T24_Zipper_Vest_Detail_Mesh_2"
+            geometry={nodes.T24_Zipper_Vest_Detail_Mesh_2.geometry}
+            material={materials["TRIM_Zipper 01 (Silver).001"]}
+            skeleton={nodes.T24_Zipper_Vest_Detail_Mesh_2.skeleton}
+          />
+          <skinnedMesh
+            name="T24_Zipper_Vest_Detail_Mesh_3"
+            geometry={nodes.T24_Zipper_Vest_Detail_Mesh_3.geometry}
+            material={materials.PaletteMaterial002}
+            skeleton={nodes.T24_Zipper_Vest_Detail_Mesh_3.skeleton}
+          />
+        </group>
+        <group name="TjejKropp" rotation={[Math.PI / 2, 0, 0]} scale={1.005}>
+          <skinnedMesh
+            name="Body_AV03001"
+            geometry={nodes.Body_AV03001.geometry}
+            material={materials.AV03_Skin}
+            skeleton={nodes.Body_AV03001.skeleton}
+          />
+          <skinnedMesh
+            name="Body_AV03001_1"
+            geometry={nodes.Body_AV03001_1.geometry}
+            material={materials.AV03_Eyebrows}
+            skeleton={nodes.Body_AV03001_1.skeleton}
+          />
+          <skinnedMesh
+            name="Body_AV03001_2"
+            geometry={nodes.Body_AV03001_2.geometry}
+            material={materials.PaletteMaterial003}
+            skeleton={nodes.Body_AV03001_2.skeleton}
+          />
+          <skinnedMesh
+            name="Body_AV03001_3"
+            geometry={nodes.Body_AV03001_3.geometry}
+            material={materials.PaletteMaterial004}
+            skeleton={nodes.Body_AV03001_3.skeleton}
+          />
+          <skinnedMesh
+            name="Body_AV03001_4"
+            geometry={nodes.Body_AV03001_4.geometry}
+            material={materials.EyeBrown}
+            skeleton={nodes.Body_AV03001_4.skeleton}
+          />
+          <skinnedMesh
+            name="Body_AV03001_5"
+            geometry={nodes.Body_AV03001_5.geometry}
+            material={materials["Eyelashes_Style 02"]}
+            skeleton={nodes.Body_AV03001_5.skeleton}
+          />
+          <skinnedMesh
+            name="Body_AV03001_6"
+            geometry={nodes.Body_AV03001_6.geometry}
+            material={materials.PaletteMaterial005}
+            skeleton={nodes.Body_AV03001_6.skeleton}
+          />
+        </group>
+        <skinnedMesh
+          name="T-Cargos1"
+          geometry={nodes["T-Cargos1"].geometry}
+          material={materials["M01-B_Cotton (Khaki)"]}
+          skeleton={nodes["T-Cargos1"].skeleton}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={1.005}
+          visible={false}
+        />
+        <skinnedMesh
+          name="TjejTröja1"
+          geometry={nodes.Tröja1.geometry}
+          material={materials["M02-A_Nylon (Black)"]}
+          skeleton={nodes.Tröja1.skeleton}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={1.005}
+          visible={false}
+        />
+        <skinnedMesh
+          name="K-Beanie2"
+          geometry={nodes["K-Beanie2"].geometry}
+          material={materials["M03-B_Wool (Ribbed)"]}
+          skeleton={nodes["K-Beanie2"].skeleton}
+          rotation={[Math.PI / 2, 0, 0]}
+          visible={false}
+        />
+        <skinnedMesh
+          name="K-Byxor1"
+          geometry={nodes["K-Byxor1"].geometry}
+          material={materials["M06-C_Leather (Rough)"]}
+          skeleton={nodes["K-Byxor1"].skeleton}
+          rotation={[Math.PI / 2, 0, 0]}
+          visible={false}
+        />
+        <skinnedMesh
+          name="K-Cargos2"
+          geometry={nodes["K-Cargos2"].geometry}
+          material={materials["M01-B_Cotton (Khaki).001"]}
+          skeleton={nodes["K-Cargos2"].skeleton}
+          rotation={[Math.PI / 2, 0, 0]}
+          visible={false}
+        />
+        <skinnedMesh
+          name="K-HikingBoots2"
+          geometry={nodes["K-HikingBoots2"].geometry}
+          material={materials["F06_Hiking Boots"]}
+          skeleton={nodes["K-HikingBoots2"].skeleton}
+          rotation={[Math.PI / 2, 0, 0]}
+          visible={false}
+        />
+        <skinnedMesh
+          name="K-Hoody1"
+          geometry={nodes["K-Hoody1"].geometry}
+          material={materials["M01-A_Cotton (Dark Grey).001"]}
+          skeleton={nodes["K-Hoody1"].skeleton}
+          rotation={[Math.PI / 2, 0, 0]}
+          visible={false}
+        />
+        <skinnedMesh
+          name="K-Skor1"
+          geometry={nodes["K-Skor1"].geometry}
+          material={materials.F10_Docs}
+          skeleton={nodes["K-Skor1"].skeleton}
+          rotation={[Math.PI / 2, 0, 0]}
+          visible={false}
+        />
+        <skinnedMesh
+          name="K-Sunglasses1"
+          geometry={nodes["K-Sunglasses1"].geometry}
+          material={materials.PaletteMaterial006}
+          skeleton={nodes["K-Sunglasses1"].skeleton}
+          rotation={[Math.PI / 2, 0, 0]}
+          visible={false}
+        />
+        <skinnedMesh
+          name="K-Sweater2"
+          geometry={nodes["K-Sweater2"].geometry}
+          material={materials["M03-D_Wool (Knitted)"]}
+          skeleton={nodes["K-Sweater2"].skeleton}
+          rotation={[Math.PI / 2, 0, 0]}
+          visible={false}
+        />
+        <group name="K-TacticalVest2" rotation={[Math.PI / 2, 0, 0]} visible={false}>
+          <skinnedMesh
+            name="T17_Tactical_Vest_Detail_Mesh001"
+            geometry={nodes.T17_Tactical_Vest_Detail_Mesh001.geometry}
+            material={materials["M02-A_Nylon (Dark Grey.001"]}
+            skeleton={nodes.T17_Tactical_Vest_Detail_Mesh001.skeleton}
+          />
+          <skinnedMesh
+            name="T17_Tactical_Vest_Detail_Mesh001_1"
+            geometry={nodes.T17_Tactical_Vest_Detail_Mesh001_1.geometry}
+            material={materials["M02-D_Nylon (Strap).002"]}
+            skeleton={nodes.T17_Tactical_Vest_Detail_Mesh001_1.skeleton}
+          />
+          <skinnedMesh
+            name="T17_Tactical_Vest_Detail_Mesh001_2"
+            geometry={nodes.T17_Tactical_Vest_Detail_Mesh001_2.geometry}
+            material={materials["M02-B_Nylon (RipStop - Black).001"]}
+            skeleton={nodes.T17_Tactical_Vest_Detail_Mesh001_2.skeleton}
+          />
+          <skinnedMesh
+            name="T17_Tactical_Vest_Detail_Mesh001_3"
+            geometry={nodes.T17_Tactical_Vest_Detail_Mesh001_3.geometry}
+            material={materials["TRIM_Zipper 01 (Black).002"]}
+            skeleton={nodes.T17_Tactical_Vest_Detail_Mesh001_3.skeleton}
+          />
+          <skinnedMesh
+            name="T17_Tactical_Vest_Detail_Mesh001_4"
+            geometry={nodes.T17_Tactical_Vest_Detail_Mesh001_4.geometry}
+            material={materials["TRIM_Stitching 01.001"]}
+            skeleton={nodes.T17_Tactical_Vest_Detail_Mesh001_4.skeleton}
+          />
+          <skinnedMesh
+            name="T17_Tactical_Vest_Detail_Mesh001_5"
+            geometry={nodes.T17_Tactical_Vest_Detail_Mesh001_5.geometry}
+            material={materials.PaletteMaterial002}
+            skeleton={nodes.T17_Tactical_Vest_Detail_Mesh001_5.skeleton}
+          />
+          <skinnedMesh
+            name="T17_Tactical_Vest_Detail_Mesh001_6"
+            geometry={nodes.T17_Tactical_Vest_Detail_Mesh001_6.geometry}
+            material={materials["TRIM_Buckle 01.001"]}
+            skeleton={nodes.T17_Tactical_Vest_Detail_Mesh001_6.skeleton}
+          />
+          <skinnedMesh
+            name="T17_Tactical_Vest_Detail_Mesh001_7"
+            geometry={nodes.T17_Tactical_Vest_Detail_Mesh001_7.geometry}
+            material={materials.PaletteMaterial007}
+            skeleton={nodes.T17_Tactical_Vest_Detail_Mesh001_7.skeleton}
+          />
+          <skinnedMesh
+            name="T17_Tactical_Vest_Detail_Mesh001_8"
+            geometry={nodes.T17_Tactical_Vest_Detail_Mesh001_8.geometry}
+            material={materials["TRIM_Buckle 02.001"]}
+            skeleton={nodes.T17_Tactical_Vest_Detail_Mesh001_8.skeleton}
+          />
+        </group>
+        <skinnedMesh
+          name="KilleKropp"
+          geometry={nodes.KilleKropp.geometry}
+          material={materials.AV02_Skin}
+          skeleton={nodes.KilleKropp.skeleton}
+          rotation={[Math.PI / 2, 0, 0]}
+          visible={false}
+        />
+      </group>
     </group>
   );
 }
 
-useGLTF.preload("/KILLEN2.glb");
-
-
+useGLTF.preload("/KLAR3.glb");
