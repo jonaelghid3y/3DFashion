@@ -225,7 +225,7 @@ useEffect(() => {
           material={materials["M03-B_Wool (Ribbed)"]}
           skeleton={nodes["K-Beanie2"].skeleton}
           rotation={[Math.PI / 2, 0, 0]}
-          visible={model === 2 && hatMale === 2}
+          visible={model === 2 && hatMale === 2 && jacketMale === 2}
         />
         <skinnedMesh
           name="K-Byxor1"
@@ -284,7 +284,7 @@ useEffect(() => {
           rotation={[Math.PI / 2, 0, 0]}
           visible={model === 2 && jacketMale === 2}
         />
-        <group name="K-TacticalVest2" rotation={[Math.PI / 2, 0, 0]}  visible={false}>
+        <group name="K-TacticalVest2" rotation={[Math.PI / 2, 0, 0]} visible={jacketMale===2} >
           <skinnedMesh
             name="T17_Tactical_Vest_Detail_Mesh001"
             geometry={nodes.T17_Tactical_Vest_Detail_Mesh001.geometry}

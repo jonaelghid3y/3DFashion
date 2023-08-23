@@ -15,7 +15,7 @@ export const ScrollManager = (props) => {
 
   useEffect(() => {
     gsap.to(data.el, {
-      duration: 2,
+      duration: 1,
       scrollTop: section * data.el.clientHeight,
       onStart: () => {
         isAnimating.current = true;
@@ -39,13 +39,23 @@ export const ScrollManager = (props) => {
     } if (data.scroll.current > lastScroll.current && curSection === 1) {
       onSectionChange(2);
     } 
+    if (data.scroll.current > lastScroll.current && curSection === 2) {
+      onSectionChange(3);
+    } 
+    
    
      if (
+      data.scroll.current < lastScroll.current &&
+      curSection === 3
+    ) {
+      onSectionChange(2);
+    } else if (
       data.scroll.current < lastScroll.current &&
       curSection === 2
     ) {
       onSectionChange(1);
-    } else if (
+    }
+    else if (
       data.scroll.current < lastScroll.current &&
       curSection === 1
     ) {
