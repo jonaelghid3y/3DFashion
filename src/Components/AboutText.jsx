@@ -13,33 +13,74 @@ export default function AboutText() {
 
   const text = "VENTURO";
 
-  const variants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: i => ({
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.8,
+        staggerChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  };
+
+  const iconVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
       opacity: 1,
       y: 0,
       transition: {
-        delay: i * 0.4 // i represents the index of the character
+        delay: 3.5
       }
-    })
+    }
   };
   return (
     <div id='textDiv'>
-      <div id="landingPageText">
-
-        <h2 class="hero glitch layers" data-text='VENTURO'><span>VENTURO</span></h2>
-        <h2 class="" style={{ fontSize: '30px' }} data-text="近設計"><span>近設計</span></h2>
-
-        <div id="iconDiv">
-          <AiOutlineInstagram color='white' size={40} />
-          <AiOutlineYoutube color='white' size={40} />
-          <AiOutlineMail color='white' size={40} />
-
+   <motion.div
+        id="landingPageText"
+        initial="hidden"
+        animate="visible"
+      
+        variants={containerVariants}
+      >
+        <div id="LandingPageName">
+        {"VENTURO".split('').map((char, index) => (
+          <motion.span
+            key={index}
+            variants={itemVariants}
+            class="hero glitch layers"
+            data-text={char}
+            
+          >
+            {char}
+          </motion.span>
+          
+        ))}
         </div>
-
-
-      </div>
-
+        <motion.h2
+          style={{ fontSize: '30px' }}
+          data-text="近設計"
+          variants={itemVariants}
+        >
+          <span>近設計</span>
+        </motion.h2>
+        <motion.div id="iconDiv">
+          <motion.div variants={iconVariants}>
+            <AiOutlineInstagram color='white' size={40} />
+          </motion.div>
+          <motion.div variants={iconVariants}>
+            <AiOutlineYoutube color='white' size={40} />
+          </motion.div>
+          <motion.div variants={iconVariants}>
+            <AiOutlineMail color='white' size={40} />
+          </motion.div>
+        </motion.div>
+      </motion.div>
       <div id="Aboutdiv">
         <h1>Venturo</h1>
         <p>

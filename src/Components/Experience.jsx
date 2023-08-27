@@ -75,13 +75,13 @@ const Experience = ({ section }) => {
                 enabled={currentSection === 1}
 
             >
-                <mesh ref={modelRef} receiveShadow position={[0, -11, 0]} scale={3} rotation={[0.05, 0, 0]} >
+                <mesh ref={modelRef} receiveShadow position={[0, -11.1, 0]} scale={3} rotation={[0.05, 0, 0]} >
 
                   <FinishedModel/>
 
                 </mesh>
 
-                <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position-y={-11}>
+                <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position-y={-11.11}>
 
                     <planeGeometry args={[170, 100]} />
                     {/* <meshBasicMaterial receiveShadow side={2} color="#383838" /> */}
