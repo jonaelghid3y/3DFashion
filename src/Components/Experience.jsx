@@ -14,9 +14,9 @@ function LightWithHelper() {
     const light = useRef();
     const light2 = useRef();
 
-    // useHelper(light, THREE.DirectionalLightHelper, 0.5);
+    useHelper(light, THREE.DirectionalLightHelper, 0.5);
     
-    return <directionalLight ref={light} position={[0, 0, 5]} intensity={1} />;
+    return <directionalLight ref={light} position={[-7, 0, 5]} intensity={3} color={'rgb(217, 7, 137)'} />;
   }
   function LightWithHelper2() {
  
@@ -24,7 +24,7 @@ function LightWithHelper() {
 
     // useHelper(light2, THREE.DirectionalLightHelper, 0.5);
     
-    return <directionalLight ref={light2} position={[0, -10, 15]} intensity={5} />;
+    return <directionalLight ref={light2} position={[1, -10, 15]} intensity={2} />;
   }
   
   
@@ -61,9 +61,9 @@ const Experience = ({ section }) => {
     return (
         <>
 
-{/* 
-            <OrbitControls /> */}
-            <ambientLight intensity={2} />
+
+            <OrbitControls />
+            <ambientLight intensity={3} />
            
             <LightWithHelper />
             <LightWithHelper2/>

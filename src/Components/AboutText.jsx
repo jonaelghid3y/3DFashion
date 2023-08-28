@@ -41,26 +41,26 @@ export default function AboutText() {
   };
   return (
     <div id='textDiv'>
-   <motion.div
+      <motion.div
         id="landingPageText"
         initial="hidden"
         animate="visible"
-      
+
         variants={containerVariants}
       >
         <div id="LandingPageName">
-        {"VENTURO".split('').map((char, index) => (
-          <motion.span
-            key={index}
-            variants={itemVariants}
-            class="hero glitch layers"
-            data-text={char}
-            
-          >
-            {char}
-          </motion.span>
-          
-        ))}
+          {"VENTURO".split('').map((char, index) => (
+            <motion.span
+              key={index}
+              variants={itemVariants}
+              class="hero glitch layers"
+              data-text={char}
+
+            >
+              {char}
+            </motion.span>
+
+          ))}
         </div>
         <motion.h2
           style={{ fontSize: '30px' }}
@@ -81,6 +81,11 @@ export default function AboutText() {
           </motion.div>
         </motion.div>
       </motion.div>
+      <div className='neonContainer'>
+        <h1> AERO <br />
+          武士</h1>
+
+      </div>
       <div id="Aboutdiv">
         <h1>Venturo</h1>
         <p>
