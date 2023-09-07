@@ -5,13 +5,13 @@ import { useEffect, useRef } from "react";
 
 export const ScrollManager = (props) => {
   const { section, onSectionChange } = props;
-
   const data = useScroll();
   const lastScroll = useRef(0);
   const isAnimating = useRef(false);
+  const locked = useRef(false);
+  const delayChange = useRef(false);
 
   data.fill.classList.add('container');
-
 
   useEffect(() => {
     gsap.to(data.el, {
@@ -19,49 +19,36 @@ export const ScrollManager = (props) => {
       scrollTop: section * data.el.clientHeight,
       onStart: () => {
         isAnimating.current = true;
+        locked.current = true;
       },
       onComplete: () => {
         isAnimating.current = false;
+        setTimeout(() => {
+          locked.current = false;
+        }, 100);
       },
     });
   }, [section]);
 
   useFrame(() => {
-    if (isAnimating.current) {
+    if (isAnimating.current || locked.current || delayChange.current) {
       lastScroll.current = data.scroll.current;
       return;
     }
-  
-    const curSection = Math.floor(data.scroll.current * data.pages);
-  
-    if (data.scroll.current > lastScroll.current && curSection === 0) {
-      onSectionChange(1);
-    } if (data.scroll.current > lastScroll.current && curSection === 1) {
-      onSectionChange(2);
-    } 
-    if (data.scroll.current > lastScroll.current && curSection === 2) {
-      onSectionChange(3);
-    } 
-    
-   
-     if (
-      data.scroll.current < lastScroll.current &&
-      curSection === 3
-    ) {
-      onSectionChange(2);
-    } else if (
-      data.scroll.current < lastScroll.current &&
-      curSection === 2
-    ) {
-      onSectionChange(1);
+
+    const isScrollingDown = data.scroll.current > lastScroll.current;
+    const isScrollingUp = data.scroll.current < lastScroll.current;
+
+    if (isScrollingDown && section < data.pages - 1) {
+      delayChange.current = true;
+      onSectionChange(section + 1);
+      setTimeout(() => delayChange.current = false, 200);
+    } else if (isScrollingUp && section > 0) {
+      delayChange.current = true;
+      onSectionChange(section - 1);
+      setTimeout(() => delayChange.current = false, 200);
     }
-    else if (
-      data.scroll.current < lastScroll.current &&
-      curSection === 1
-    ) {
-      onSectionChange(0);
-    }
-  
+
     lastScroll.current = data.scroll.current;
   });
 

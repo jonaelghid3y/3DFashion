@@ -8,8 +8,9 @@ import { AiFillLinkedin, AiFillGithub } from 'react-icons/ai';
 import { BsFillBriefcaseFill } from 'react-icons/bs';
 
 import { useInView } from 'react-intersection-observer';
+import Header from './Header'
 
-export default function AboutText() {
+export default function AboutText({section, onSectionChange}) {
 
   const text = "VENTURO";
 
@@ -37,10 +38,43 @@ export default function AboutText() {
       transition: {
         delay: 3.5
       }
+    },
+    initial: {
+      scale: 1,
+    },
+    hover: {
+      scale: 1.3,
+      transition: { duration: 0.1 },
+    },
+    tap: {
+      scale: 0.95,
+      filter: "brightness(0.8)",
+      transition: { duration: 0.1 },
     }
+
   };
+  const neonVariants = {
+    hidden: {  opacity:0 },
+    visible: { 
+        x: 0, 
+        opacity: 1, 
+        transition: { x: { duration: 1 }, opacity: { duration: 3 } } 
+    }
+};
+const aboutVariants = {
+  hidden: { opacity: 0, y: -50 },  // start slightly to the left and faded out
+  visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+          duration: 0.8,  // You can adjust the duration as needed
+          ease: "easeOut"
+      } 
+  }
+};
   return (
     <div id='textDiv'>
+      <Header section={section}  onSectionChange={onSectionChange}/>
       <motion.div
         id="landingPageText"
         initial="hidden"
@@ -53,7 +87,7 @@ export default function AboutText() {
             <motion.span
               key={index}
               variants={itemVariants}
-              class="hero glitch layers"
+              className="hero glitch layers"
               data-text={char}
 
             >
@@ -70,39 +104,55 @@ export default function AboutText() {
           <span>近設計</span>
         </motion.h2>
         <motion.div id="iconDiv">
-          <motion.div variants={iconVariants}>
+          <motion.div 
+          variants={iconVariants}
+          whileHover="hover"
+          whileTap="tap"
+          >
             <AiOutlineInstagram color='white' size={40} />
           </motion.div>
-          <motion.div variants={iconVariants}>
+          <motion.div 
+          variants={iconVariants}
+          whileHover="hover"
+          whileTap="tap"
+          >
             <AiOutlineYoutube color='white' size={40} />
           </motion.div>
-          <motion.div variants={iconVariants}>
+          <motion.div 
+          variants={iconVariants}
+          whileHover="hover"
+          whileTap="tap"
+          >
             <AiOutlineMail color='white' size={40} />
           </motion.div>
         </motion.div>
       </motion.div>
-      <div className='neonContainer'>
-        <h1> AERO <br />
-          武士</h1>
-
-      </div>
-      <div id="Aboutdiv">
-        <h1>Venturo</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, fugit accusamus aliquam a architecto natus distinctio quasi ipsum. Exercitationem modi suscipit rem tempore libero, consequatur asperiores eius aspernatur soluta a?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, fugit accusamus aliquam a architecto natus distinctio quasi ipsum. Exercitationem modi suscipit rem tempore libero, consequatur asperiores eius aspernatur soluta a?
-        </p>
-        <button className="button">Read more</button>
-      </div>
+      <motion.div 
+    className='neonContainer' 
+    variants={neonVariants} 
+    initial="hidden" 
+    animate={section === 1 ? "visible" : "hidden"}  // animate based on section value
+>
+    <h1> AERO <br />
+        武士
+    </h1>
+</motion.div>
+<motion.div 
+    id="Aboutdiv"
+    variants={aboutVariants} 
+    initial="hidden" 
+    animate={section === 2 ? "visible" : "hidden"}  // animate based on section value
+>
+    <h1>Collection</h1>
+    <p>
+        At Venturo Fashion, we are sculpting the nexus between timeless elegance and groundbreaking 3D innovation. Our collections, with their clean, realistic designs, are now envisioned in vivid 3D landscapes before becoming tangible masterpieces. As technology and tradition intertwine, Venturo stands at the forefront, pioneering an exhilarating blend of style and digital artistry. <br/> <br/> Venture into the world of Venturo, where the essence of fashion is reimagined for tomorrow's world.
+    </p>
+</motion.div>
 
       <div id="Contactdiv" initial='hidden'   >
         <h1>About us</h1>
         <p>
-          We fused fashion with the 3D magic of Three.js (via React Three Fiber) and Blender's modeling prowess to craft this immersive experience. Three.js brought the dynamic visuals, while Blender added depth and realism to our fashion elements. It's been a ride meshing these technologies to give you a fresh, multi-dimensional look at fashion.
-          <br /><br />
-          Curious for more? Dive into our portfolios to see our digital design adventures. Thanks for stopping by and exploring our world!
+        We've blended the distinctiveness of fashion with the immersive 3D capabilities of Three.js (utilizing React Three Fiber) and Blender's intricate modeling. The outcome is a captivating 3D web experience that stands out. The dynamic visuals come alive with Three.js, complemented by the realism Blender adds to the fashion components. Merging these tools has been an exciting process.  For a deeper dive, you can check out our portfolios. Appreciate your interest!
         </p>
 
         <h2 style={{ marginTop: "40px" }}>Arian X Frontendjoni</h2>

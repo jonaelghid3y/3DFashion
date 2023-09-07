@@ -1,7 +1,18 @@
 import React from 'react';
 import { useCostumize } from '../Context/Costumize';
+import { motion } from 'framer-motion';
 
-const Configurator = () => {
+const Configurator = ({section}) => {
+
+    const slideInVariants = {
+        hidden: {x: '200%', opacity:0 },
+        visible: { 
+            x: 0, 
+            opacity: 1, 
+            transition: { x: { duration: 1 }, opacity: { duration: 3 } } 
+        }
+    };
+
     const {
         model,
         setModel,
@@ -31,7 +42,12 @@ const Configurator = () => {
     };
 
     return (
-        <div className="configurator">
+        <motion.div 
+        className="configurator" 
+        variants={slideInVariants} 
+        initial="hidden" 
+        animate={section === 1 ? "visible" : "hidden"}
+    >
             <section className="configuratorSection">
             <div className="configuratorSectionTitle">
                 Model
@@ -53,9 +69,9 @@ const Configurator = () => {
             {model === 1 && (
                 <>
                     {generateConfigSection("hatTitle", [{ label: "None" }, { label: "Scarf" }], hatFemale, setHatFemale)}
-                    {generateConfigSection("jackaTitle", [{ label: "Broly Sweater" }, { label: "Jeans vest" }], jacketFemale, setJacketFemale)}
+                    {generateConfigSection("jackaTitle", [{ label: "Compression" }, { label: "Bomber" }], jacketFemale, setJacketFemale)}
                     {generateConfigSection("byxTitle", [{ label: "Cargo pants" }, { label: "Jeans" }], pantsFemale, setPantsFemale)}
-                    {generateConfigSection("skoTitle", [{ label: "Nike Airforce" }, { label: "Nike Dunks" }], shoeFemale, setShoeFemale)}
+                    {generateConfigSection("skoTitle", [{ label: "Airforce" }, { label: "Dunks" }], shoeFemale, setShoeFemale)}
                 </>
             )}
 
@@ -63,11 +79,11 @@ const Configurator = () => {
                 <>
                     {generateConfigSection("hatTitle", [{ label: "None" }, { label: "Beenie" }], hatMale, setHatMale)}
                     {generateConfigSection("jackaTitle", [{ label: "Hoodie" }, { label: "Sweater" }], jacketMale, setJacketMale)}
-                    {generateConfigSection("byxTitle", [{ label: "Byxa 1" }, { label: "Cargo" }], pantsMale, setPantsMale)}
+                    {generateConfigSection("byxTitle", [{ label: "Leather" }, { label: "Cargo" }], pantsMale, setPantsMale)}
                     {generateConfigSection("skoTitle", [{ label: "Boots" }, { label: "Dr.Martin" }], shoeMale, setShoeMale)}
                 </>
             )}
-        </div>
+        </motion.div>
     );
 };
 

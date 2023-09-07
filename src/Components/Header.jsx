@@ -2,10 +2,10 @@ import React from 'react'
 import Nav from './Nav'
 
 
-function Header({section}) {
+function Header({section, onSectionChange }) {
   return (
     <header>
-        <Nav section={section}/>
+        <Nav section={section} onSectionChange={onSectionChange}/>
 
     </header>
   )

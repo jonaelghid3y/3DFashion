@@ -32,22 +32,8 @@ function App() {
   return (
     <CostumizeProvider>
       <div className='App'>
-
-        <AnimatePresence>
-          {section === 1 && (
-            <motion.div
-              initial={{ opacity: 0 }}     // Initial state: fully transparent
-              animate={{ opacity: 1 }}     // End state: fully opaque
-              exit={{ opacity: 0 }}        // Exit animation: fade out
-              transition={{ duration: 2 }} // Duration of the transition in seconds
-            >
-              <Configurator />
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-
-        <Canvas >
+        <Configurator section={section} />
+        <Canvas>
 
           <ScrollControls pages={4} damping={0.1}>
             <ScrollManager section={section} onSectionChange={setSection} />
@@ -57,10 +43,10 @@ function App() {
 
 
             <Scroll html>
-              <Header section={section} />
 
 
-              <AboutText />
+
+              <AboutText section={section} onSectionChange={setSection} />
 
 
 
