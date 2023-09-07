@@ -16,8 +16,6 @@ import ThreejSText from './Components/ThreejSText'
 import { Loader } from '@react-three/drei'
 import { useProgress } from '@react-three/drei'
 
-
-
 function App() {
   const [section, setSection] = useState(0)
 
@@ -25,9 +23,6 @@ function App() {
     const { active, progress, errors, item, loaded, total } = useProgress()
     return <Html center>{progress} % loaded</Html>
   }
-
-
-
 
   return (
     <CostumizeProvider>
@@ -39,39 +34,16 @@ function App() {
             <ScrollManager section={section} onSectionChange={setSection} />
             <color attach="background" args={["#101010"]} />
             <fog attach="fog" args={['#101010', 5, 25]} />
-
-
-
             <Scroll html>
-
-
-
               <AboutText section={section} onSectionChange={setSection} />
-
-
-
             </Scroll>
-
             <Scroll>
-
-              <ThreejSText />
               <Suspense fallback={<Loader />}>
                 <Experience section={section} />
               </Suspense>
             </Scroll>
-            <Scroll >
-
-
-            </Scroll>
-
-
           </ScrollControls>
         </Canvas>
-
-
-
-
-
       </div>
     </CostumizeProvider>
   )

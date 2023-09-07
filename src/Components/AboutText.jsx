@@ -73,7 +73,7 @@ const aboutVariants = {
   }
 };
   return (
-    <div id='textDiv'>
+    <>
       <Header section={section}  onSectionChange={onSectionChange}/>
       <motion.div
         id="landingPageText"
@@ -127,6 +127,7 @@ const aboutVariants = {
           </motion.div>
         </motion.div>
       </motion.div>
+    <div id="configcontainer">
       <motion.div 
     className='neonContainer' 
     variants={neonVariants} 
@@ -137,6 +138,7 @@ const aboutVariants = {
         武士
     </h1>
 </motion.div>
+</div>
 <motion.div 
     id="Aboutdiv"
     variants={aboutVariants} 
@@ -197,7 +199,7 @@ const aboutVariants = {
 
         </div>
       </div>
-    </div>
+    </>
 
   )
 }

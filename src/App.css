@@ -28,14 +28,32 @@ html {
 .container {
   position: absolute;
   top: 0;
+  left: 0;
 
 }
-
-.configurator {
+.customize-btn {
+  font-family: 'Orbitron', sans-serif;
+  display: none; /* By default, hide the button */
+  position: fixed;
+  bottom: 160px;
+  right: 0;
+  z-index: 2; /* Ensure it's above other content */
+  padding: 10px 20px;
+  background: none;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.configuratorContainer{
   position: fixed;
   right: 200px;
-  width: 320px;
   top: 15vh;
+  z-index: 1;
+
+}
+.configurator {
+  width: 320px;
   color: white;
   padding: 16px;
   display: flex;
@@ -213,7 +231,32 @@ gap: 40px;
   gap: 25px;
   font-size: 17px;
 }
+.hamburger {
+  display: none; 
+}
+.mobile-menu {
+  display: none;
+}
+.mobile-menu {
+  display: none; /* Hide by default */
+  flex-direction: column;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  color: white;
+  background-color: none;
+  z-index: 1000;
 
+}
+
+/* When the menu is open, show the mobile menu */
+body.menu-open .mobile-menu {
+  display: flex;
+}
+#logo{
+  width: 50px;
+  aspect-ratio: 1/1;
+}
 #Logodiv{
   width: 300px;
   display: flex;
@@ -221,7 +264,9 @@ gap: 40px;
   align-items: center;
 }
 #landingPageText{
-  
+  padding: 0;
+  margin: 0;
+  padding-left: 5px;
   height: 97vh;
   width: 99vw;
   color: white;
@@ -233,9 +278,11 @@ gap: 40px;
   margin-top: -100px;
  
   font-family: 'Anurati', sans-serif;
+  
 }
 #LandingPageName{
   font-size: 250px;
+ 
 
 }
 #landingPageText > h2{
@@ -260,10 +307,18 @@ gap: 40px;
 
   
 }
+#configcontainer{
+  border: 1px solid white;
+  margin-top: 2vh;
+  height: 100vh;
+  width: 99vw;
+  display: flex;
+  align-items: flex-start;
+}
 
 .neonContainer{
-  margin-top: 15vh;
-  margin-left: 12vw;
+  margin-left: 10vw;
+  margin-top: 5vw;
   width: 50vh;
   color: white;
   font-family: 'Orbitron', sans-serif;
@@ -350,8 +405,8 @@ gap: 40px;
 
 
 #Aboutdiv {
-
-  margin-top: 63vh;
+border: 1px solid white;
+  
   height: 90vh;
 
 
@@ -929,3 +984,137 @@ padding-top: 10vh;
   text-align: center;
 }
 
+@media only screen and (max-width: 900px) {
+    .container {
+    left: 0;
+    width: 100vw;  /* viewport width */
+    height: 100vh; /* viewport height */
+}
+  #länkContainer {
+    display: none;
+}
+.hamburger {
+  display: block; /* Show on mobile */
+}
+#Logodiv{
+  font-size: 20px;
+}
+#logo{
+  width: 40px;
+  aspect-ratio: 1/1;
+}
+
+
+
+.mobile-menu {
+  display: block;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 70px;
+  right: 470px;
+  font-size: 15px;
+ 
+  color: rgb(255, 255, 255);
+  background-color: none;
+  z-index: 1000;
+ 
+  
+}
+  #landingPageText{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+  #LandingPageName{
+    font-size: 70px;
+  
+  }
+  #configcontainer{
+    border: 1px solid white;
+    margin-top: 2vh;
+    height: 100vh;
+    width: 99vw;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .neonContainer{
+    margin-left: 0;
+    font-size: 15px;
+   
+    width: 30vh;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+  }
+  .neonContainer>h1{
+    font-size: 30px;
+  }
+  .customize-btn {
+    display: block;
+}
+
+
+.configuratorContainer{
+  position: fixed;
+  right: 12vw;
+  top: 79vh;
+  z-index: 1;
+  
+
+}
+
+
+.configurator {
+
+  width: 70vw;
+  
+  right: 100px;
+  height: 12vh; /* Adjust the height so it doesn't cover the entire screen */
+  overflow-x: auto;
+  overflow-y: auto;
+  flex-direction: row;
+  padding: 10px;
+  gap: 10px;
+}
+
+.configuratorSection { 
+  border: 1px solid white; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50vw;
+}
+
+.configuratorSectionValues {
+  
+  width: 300px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  white-space: nowrap;
+  gap: 10px;
+}
+.itemDot {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: solid 2px rgb(132, 124, 124)
+}
+.configuratorSectionTitle {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 17px;
+  
+
+}
+
+
+}
