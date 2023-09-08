@@ -157,7 +157,7 @@ export default function AboutText({ section, onSectionChange }) {
       <div id="Contactdiv" initial='hidden'   >
         <h1>About us</h1>
         <p>
-          We've blended the distinctiveness of fashion with the immersive 3D capabilities of Three.js (utilizing React Three Fiber) and Blender's intricate modeling. The outcome is a captivating 3D web experience that stands out. The dynamic visuals come alive with Three.js, complemented by the realism Blender adds to the fashion components. Merging these tools has been an exciting process.  For a deeper dive, you can check out our portfolios. Appreciate your interest!
+        We've combined fashion's uniqueness with Three.js's immersive 3D, powered by React Three Fiber and Blender's detailed modeling. The result is a standout 3D web experience. Dynamic visuals from Three.js meet Blender's realistic fashion details. Explore our portfolios for more. Thank you for your interest!
         </p>
 
       
