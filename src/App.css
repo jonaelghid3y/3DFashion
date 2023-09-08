@@ -31,6 +31,68 @@ html {
   left: 0;
 
 }
+.ripple__rounds {
+  border: 0 solid transparent;
+  border-radius: 50%;
+  position: relative;
+}
+.ripple__rounds:before, .ripple__rounds:after {
+  content: '';
+  border: 0.5em solid rgb(255, 255, 255);
+  border-radius: 50%;
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: ripple__rounds 1s linear infinite;
+  opacity: 0;
+}
+.ripple__rounds:before {
+  animation-delay: .5s;
+}
+.ripple__rounds:after {
+  animation-delay: 0;
+}
+@keyframes ripple__rounds {
+  0% {
+      transform: scale(0);
+      opacity: 0;
+ }
+  50% {
+      opacity: 1;
+ }
+  100% {
+      transform: scale(1);
+      opacity: 0;
+ }
+}
+[class*=ripple__rounds] {
+  display: inline-block;
+  width: 8em;
+  height:8em;
+  color: inherit;
+  vertical-align: middle;
+  pointer-events: none;
+}
+.box {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+.not-show{
+  display: none;
+}
+body{
+  background-color: black;
+}
 .customize-btn {
   font-family: 'Orbitron', sans-serif;
   display: none; /* By default, hide the button */
@@ -218,7 +280,7 @@ nav {
   justify-content:space-between;
   width: 100%;
   
-gap: 40px;
+gap: 35px;
   font-size: 25px;
   font-family: 'Orbitron', sans-serif;
   padding: 0 120px;
@@ -1011,8 +1073,8 @@ padding-top: 10vh;
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 70px;
-  right: 470px;
+  top: 7vh;
+  right: 25vw;
   font-size: 15px;
  
   color: rgb(255, 255, 255);
@@ -1115,6 +1177,100 @@ padding-top: 10vh;
   
 
 }
+#Aboutdiv {
+  border: 1px solid white;
+    
+    height: 90vh;
+    width: 100vw;
+  
+  
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding-left: 10vw;
+    padding-top: 12vh;
+    font-family: 'Open Sans', sans-serif;
+    
+  
+  }
+  
+  #Aboutdiv>p {
+    width: 320px;
+    font-size: 20px;
+    margin: 20;
+    
+  }
+  
+  #Aboutdiv>h1 {
+  
+    font-size: 60px;
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+  
+  }
+  #Contactdiv {
+    padding-top: 10vh;
+      margin-top: 0vh;
+      
+      height: 120vh;
+      width: 100vw;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-direction: column;
+      font-family: 'Open Sans', sans-serif;
+      overflow-y: auto;
+     
+    
+    }
+    #Contactdiv>p {
+      width: 320px;
+      font-size: 20px;
+      margin: 20;
+      
+    }
+    
+    #Contactdiv>h1 {
+    
+      font-size: 60px;
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+    
+    }
+    #Contactdiv> .button {
+    
+      width: 250px;
+      height: 60px;
+      font-size: 25px;
+      font-weight: bold;
+    }
+    #contactcontainer{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0px;
+    }
+    .contacticons{
+     
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      gap: 10px;
+      padding: 0;
+      margin-top: 30px;
+      border: 1px solid white;
+    }
+    .contacticons > h5{
+    
+    margin: 10px;
+     
+      
+    }
 
 
 }
