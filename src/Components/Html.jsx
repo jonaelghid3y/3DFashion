@@ -63,12 +63,12 @@ export default function AboutText({ section, onSectionChange }) {
     }
   };
   const aboutVariants = {
-    hidden: { opacity: 0, y: -50 },  // start slightly to the left and faded out
+    hidden: { opacity: 0, y: -100 },  // start slightly to the left and faded out
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,  // You can adjust the duration as needed
+        duration: 2,  // You can adjust the duration as needed
         ease: "easeOut"
       }
     }
@@ -154,11 +154,16 @@ export default function AboutText({ section, onSectionChange }) {
         </p>
       </motion.div>
 
-      <div id="Contactdiv" initial='hidden'   >
+      <motion.div 
+      id="Contactdiv" 
+      initial='hidden'
+      variants={aboutVariants}
+      animate={section === 3 ? "visible" : "hidden"}>
         <h1>About us</h1>
         <p>
-        We've combined fashion's uniqueness with Three.js's immersive 3D, powered by React Three Fiber and Blender's detailed modeling. The result is a standout 3D web experience. Dynamic visuals from Three.js meet Blender's realistic fashion details. Explore our portfolios for more. Thank you for your interest!
+          We've blended the distinctiveness of fashion with the immersive 3D capabilities of Three.js (utilizing React Three Fiber) and Blender's intricate modeling. The outcome is a captivating 3D web experience that stands out. The dynamic visuals come alive with Three.js, complemented by the realism Blender adds to the fashion components. Merging these tools has been an exciting process.  For a deeper dive, you can check out our portfolios. Appreciate your interest!
         </p>
+        <h2>ARIAN x FRONTENDJONI</h2>
 
       
         <div id="contactcontainer">
@@ -201,7 +206,7 @@ export default function AboutText({ section, onSectionChange }) {
           </motion.div>
 
         </div>
-      </div>
+      </motion.div>
     </>
 
   )

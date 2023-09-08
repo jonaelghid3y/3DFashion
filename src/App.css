@@ -25,6 +25,20 @@ html {
  
 
 }
+::-webkit-scrollbar-thumb {
+  background-color: #ffffff;
+  opacity: 0.5;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
 
 .container {
   position: absolute;
@@ -563,12 +577,13 @@ body.menu-open .mobile-menu {
 #Contactdiv {
   padding-top: 10vh;
   margin-top: 0vh;
+  padding-left: 10vw;
 
   height: 100vh;
   width: 100vw;
   color: white;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
   font-family: 'Open Sans', sans-serif;
@@ -577,9 +592,14 @@ body.menu-open .mobile-menu {
 }
 
 #Contactdiv>p {
-  width: 1200px;
-  font-size: 30px;
+  width: 690px;
+  font-size: 28px;
   margin: 20;
+
+    margin-top: 50px;
+    margin-bottom: 50px;
+    
+  
 
 }
 
@@ -588,6 +608,7 @@ body.menu-open .mobile-menu {
   font-size: 90px;
   margin: 0;
   font-family: 'Orbitron', sans-serif;
+  margin-left: 1.2vw;
 
 }
 
@@ -610,6 +631,7 @@ body.menu-open .mobile-menu {
 }
 
 #contactcontainer {
+ 
   display: flex;
   align-items: center;
   justify-content: center;

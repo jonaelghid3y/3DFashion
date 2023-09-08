@@ -16,7 +16,11 @@ import * as THREE from 'three';
 const Experience = ({ section }) => {
 
     const { material, color } = useCostumize();
-    const { camera } = useThree();
+    const { camera, viewport } = useThree();
+
+    const isMobile = window.innerWidth < 768;
+    const responsiveRatio = viewport.width / 12;
+
 
     // Adjust the camera's y position
 
@@ -43,23 +47,23 @@ const Experience = ({ section }) => {
     }
     const loadingPosition = { x: 0, y: -5, z: 0 };
     const originalPosition = { x: 0, y: -10.5, z: 0 };
-    const targetPosition = { x: 2, y: -17.9, z: 1 };
-    const furtherTargetPosition = { x: 2, y: -24, z: 3 };
+    const targetPosition = { x: isMobile? 1 : 2, y: isMobile? -17.3 : -17.9, z: 1 };
+    const furtherTargetPosition = { x: 1, y: -24, z: 3 };
 
     const originalRotation = { x: 0.05, y: 0, z: 0 };
     const targetRotation = {
         x: originalRotation.x + 0,
-        y: originalRotation.y + -1.1,
+        y: originalRotation.y + isMobile? -0.9 : -1.1,
         z: originalRotation.z
     };
     const furtherTargetRotation = {
         x: targetRotation.x,
-        y: targetRotation.y - 1,
+        y: targetRotation.y +0.2,
         z: targetRotation.z
     };
 
     const originalPlanePosition = { x: 0, y: -10.68, z: 0 };
-    const targetPlanePosition = { x: 2, y: -18, z: 3 };
+    const targetPlanePosition = { x: 2, y: isMobile? -17.4 : -18, z: 3 };
     const furtherPlanePosition = { x: 2, y: -26, z: 3 };
 
     const originalPlaneRotation = { x: -Math.PI / 2, y: 0, z: 0 };
@@ -87,7 +91,7 @@ useEffect(() => {
 
         // Position
         gsap.to(modelRef.current.position, {
-            duration: 2,
+            duration: 1.8,
             x: originalPosition.x,
             y: originalPosition.y,
             z: originalPosition.z,
@@ -96,7 +100,7 @@ useEffect(() => {
         });
 
         gsap.to(planeRef.current.position, {
-            duration: 1.5,
+            duration: 2,
             x: originalPlanePosition.x,
             y: originalPlanePosition.y,
             z: originalPlanePosition.z,
@@ -105,7 +109,7 @@ useEffect(() => {
 
         // Rotation (assuming no rotation needed initially, but adjust if required)
         gsap.to(modelRef.current.rotation, {
-            duration: 2,
+            duration: 1.8,
             x: originalRotation.x,
             y: originalRotation.y,
             z: originalRotation.z,
@@ -127,7 +131,7 @@ useEffect(() => {
             // Animate back to original positions and rotations
             // Position
             gsap.to(modelRef.current.position, {
-                duration: 2,
+                duration: 1.8,
                 x: originalPosition.x,
                 y: originalPosition.y,
                 z: originalPosition.z,
@@ -195,7 +199,7 @@ useEffect(() => {
             // Animate to further target positions and rotations
             // Position
             gsap.to(modelRef.current.position, {
-                duration: 2,
+                duration: 1.5,
                 x: furtherTargetPosition.x,
                 y: furtherTargetPosition.y,
                 z: furtherTargetPosition.z,
@@ -252,7 +256,7 @@ useEffect(() => {
 
 
             >
-                <mesh ref={modelRef}  position={[0, -11.7, 0]} scale={3} rotation={[0.05, 0, 0]} >
+                <mesh ref={modelRef}  position={[0, -11.7, 0]} scale={isMobile? 2.7:3} rotation={[0.05, 0, 0]} >
 
                     <Model  />
 
