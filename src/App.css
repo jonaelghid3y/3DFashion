@@ -7,14 +7,11 @@
   font-family: 'Anurati';
   src: url('/Anurati-Regular.otf') format('opentype');
 }
-*{
-  touch-action: none;
-}
 
 #root,
 body,
 html {
-  touch-action: none;
+  
   margin: 0;
   padding: 0;
 }
@@ -25,6 +22,7 @@ html {
   height: 100vh;
   -webkit-touch-callout: none;
   user-select: none;
+ 
 
 }
 
@@ -135,6 +133,7 @@ body {
 }
 
 .configurator {
+  
   width: 320px;
   color: white;
   padding: 16px;
@@ -1119,7 +1118,7 @@ body.menu-open .mobile-menu {
     flex-direction: column;
     position: absolute;
     top: 7vh;
-    right: 25vw;
+    right: 12vw;
     font-size: 15px;
 
     color: rgb(255, 255, 255);
@@ -1155,7 +1154,7 @@ body.menu-open .mobile-menu {
   .neonContainer {
     margin-left: 0;
     font-size: 15px;
-
+    margin-top: 50px;
     width: 30vh;
     color: white;
     font-family: 'Orbitron', sans-serif;
@@ -1163,7 +1162,7 @@ body.menu-open .mobile-menu {
   }
 
   .neonContainer>h1 {
-    font-size: 30px;
+    font-size: 16px;
   }
 
   .customize-btn {
