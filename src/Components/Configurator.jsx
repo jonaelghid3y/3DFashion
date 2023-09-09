@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const Configurator = ({ section }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [isConfiguratorVisible, setConfiguratorVisible] = useState(false);
+    const [isConfiguratorVisible, setConfiguratorVisible] = useState(true);
 
     const slideInVariantsMobile = {
         hidden: { x: '100%', opacity: 0 },
