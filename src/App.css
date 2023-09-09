@@ -128,7 +128,7 @@ body {
   border: none;
   color: white;
   position: fixed;
-  top: 70vh;
+  top: 65vh;
   right: 0;
   font-size: 12px;
 
@@ -1173,7 +1173,7 @@ body.menu-open .mobile-menu {
   .neonContainer {
     margin-left: 0;
     font-size: 15px;
-    margin-top: 50px;
+    margin-top: 12vh;
     width: 30vh;
     color: white;
     font-family: 'Orbitron', sans-serif;
@@ -1192,7 +1192,7 @@ body.menu-open .mobile-menu {
   .configuratorContainer {
     position: fixed;
     right: 12vw;
-    top: 79vh;
+    top: 70vh;
     z-index: 1;
 
 
