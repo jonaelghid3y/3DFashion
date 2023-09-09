@@ -256,7 +256,7 @@ useEffect(() => {
 
 
             >
-                <mesh ref={modelRef}  position={[0, -11.7, 0]} scale={isMobile? 2.7:3} rotation={[0.05, 0, 0]} >
+                <mesh ref={modelRef}  position={[0, -11.7, 0]} scale={isMobile? 2.6:3} rotation={[0.05, 0, 0]} >
 
                     <Model  />
 
