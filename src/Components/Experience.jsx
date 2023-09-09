@@ -46,7 +46,7 @@ const Experience = ({ section }) => {
         return <directionalLight ref={light2} position={[1, -10, 15]} intensity={6} />;
     }
     const loadingPosition = { x: 0, y: -5, z: 0 };
-    const originalPosition = { x: 0, y: -10.5, z: 0 };
+    const originalPosition = { x: 0, y:  isMobile? -10.2:-10.5, z: 0 };
     const targetPosition = { x: isMobile? 1 : 2, y: isMobile? -17.3 : -17.9, z: 1 };
     const furtherTargetPosition = { x: 1, y: -24, z: 3 };
 
