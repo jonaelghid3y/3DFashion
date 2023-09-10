@@ -47,7 +47,7 @@ html {
   position: absolute;
   top: 0;
   left: 0;
-  touch-action: none;
+ 
 
 }
 
@@ -1258,7 +1258,7 @@ body.menu-open .mobile-menu {
     justify-content: center;
     flex-direction: column;
     font-family: 'Open Sans', sans-serif;
-   
+    overflow-y: scroll;
 
 
   }
