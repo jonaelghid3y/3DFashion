@@ -26,9 +26,11 @@ html {
 
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #ffffff;
+  background: linear-gradient(to right, transparent 25%, #ffffff 25%, #ffffff 75%, transparent 75%);
   opacity: 0.5;
   border-radius: 5px;
+  height: 10px;
+
 }
 
 ::-webkit-scrollbar-track {
@@ -38,6 +40,7 @@ html {
 ::-webkit-scrollbar {
   width: 4px;
   height: 4px;
+ 
 }
 
 .container {
@@ -130,13 +133,13 @@ body {
   position: fixed;
   top: 65vh;
   right: 0;
-  font-size: 12px;
+  font-size: 10px;
 
 }
 
 .configuratorContainer {
   position: fixed;
-  right: 200px;
+  right: 10vw;
   top: 15vh;
   z-index: 1;
  
@@ -145,7 +148,7 @@ body {
 .configurator {
   font-family: 'Orbitron', sans-serif;
 
-  width: 320px;
+  width: 15vw;
   color: white;
   padding: 16px;
   display: flex;
@@ -176,9 +179,7 @@ body {
 .configuratorSectionTitle {
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 20px;
-
-
+  font-size: 17;
 }
 
 #byxTitle {
@@ -190,7 +191,7 @@ body {
 }
 
 #jackaTitle {
-  background-image: url(/public/Cube/9069240_clothes_crew_neck_icon.png);
+  background-image: url(/public/9069240_clothes_crew_neck_icon.png);
   background-size: contain;
   background-repeat: no-repeat;
   width: 30px;
@@ -229,7 +230,7 @@ body {
 }
 
 .itemLabel {
-  font-size: 15px;
+  font-size: 12px;
   color: #acacac;
 
 }
@@ -240,8 +241,8 @@ body {
 }
 
 .itemDot {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 100%;
   border: solid 2px rgb(132, 124, 124)
 }
@@ -310,18 +311,18 @@ nav {
   justify-content: space-between;
   width: 100%;
 
-  gap: 35px;
+  gap: 3vw;
   font-size: 25px;
   font-family: 'Orbitron', sans-serif;
-  padding: 0 120px;
+  padding: 0 80px;
 }
 
 
 #länkContainer {
   display: flex;
   flex-direction: row;
-  gap: 25px;
-  font-size: 17px;
+  gap: 30px;
+  font-size: 12px;
 }
 
 .hamburger {
@@ -351,12 +352,13 @@ body.menu-open .mobile-menu {
 }
 
 #logo {
-  width: 50px;
+  width: 40px;
   aspect-ratio: 1/1;
 }
 
 #Logodiv {
   width: 300px;
+  font-size: 17px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -381,19 +383,8 @@ body.menu-open .mobile-menu {
 }
 
 #LandingPageName {
-  font-size: 250px;
+  font-size: 180px;
 
-
-}
-
-#landingPageText>h2 {
-  height: 100px;
-  filter: drop-shadow(0 1px 3px);
-}
-
-#LandingPageH1 {
-  font-size: 200px;
-  filter: drop-shadow(0 1px 3px);
 }
 
 #iconDiv {
@@ -407,12 +398,9 @@ body.menu-open .mobile-menu {
   justify-content: center;
   gap: 40px;
   filter: drop-shadow(0 1px 3px);
-
-
 }
 
 #configcontainer {
-  
   margin-top: 2vh;
   height: 100vh;
   width: 99vw;
@@ -422,33 +410,26 @@ body.menu-open .mobile-menu {
 
 .neonContainer {
   margin-left: 10vw;
-  margin-top: 5vw;
-  width: 50vh;
+  margin-top: 15vh;
+  width: 25vw;
   color: white;
   font-family: 'Orbitron', sans-serif;
   text-align: center;
-
-
-
-
 }
 
 .neonContainer>h1 {
-  font-size: 70px;
-
+  font-size: 50px;
   text-shadow:
     /* White glow */
     0 0 7px #fff,
     0 0 10px #fff,
     0 0 21px #fff,
-
     /* Green glow */
     0 0 42px rgb(155, 10, 109),
     0 0 82px rgb(217, 7, 137),
     0 0 92px rgb(217, 7, 137),
     0 0 102px rgb(217, 7, 137),
     0 0 151px rgb(217, 7, 137);
-
   border: 0.2rem solid #fff;
   border-radius: 2rem;
   padding: 0.4em;
@@ -522,10 +503,7 @@ body.menu-open .mobile-menu {
 
 
 #Aboutdiv {
- 
   height: 90vh;
-
-
   color: white;
   display: flex;
   align-items: flex-start;
@@ -539,36 +517,19 @@ body.menu-open .mobile-menu {
 }
 
 #Aboutdiv>p {
-  width: 800px;
-  font-size: 30px;
+  margin-top: 10vh;
+  width: 700px;
+  font-size: 22px;
   margin: 20;
 
 }
 
 #Aboutdiv>h1 {
 
-  font-size: 90px;
+  font-size: 80px;
   margin: 0;
   font-family: 'Orbitron', sans-serif;
 
-}
-
-#Aboutdiv>.button {
-
-  width: 250px;
-  height: 60px;
-  font-size: 25px;
-  font-weight: bold;
-
-
-
-
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 5px solid rgb(248, 4, 183);
-  z-index: 1;
-  color: rgb(219, 219, 219);
-  background-color: rgb(248, 4, 183);
 }
 
 #Contactdiv {
@@ -590,7 +551,7 @@ body.menu-open .mobile-menu {
 
 #Contactdiv>p {
   width: 690px;
-  font-size: 28px;
+  font-size: 22px;
   margin: 20;
 
     margin-top: 50px;
@@ -602,29 +563,15 @@ body.menu-open .mobile-menu {
 
 #Contactdiv>h1 {
 
-  font-size: 90px;
+  font-size: 80px;
   margin: 0;
   font-family: 'Orbitron', sans-serif;
-  margin-left: 1.2vw;
+  margin-left: 0.4vw;
 
 }
 
-#Contactdiv>.button {
-
-  width: 250px;
-  height: 60px;
-  font-size: 25px;
-  font-weight: bold;
-
-
-
-
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 5px solid rgb(248, 4, 183);
-  z-index: 1;
-  color: rgb(219, 219, 219);
-  background-color: rgb(248, 4, 183);
+#Contactdiv>h2 {
+  font-family: 'Orbitron', sans-serif;
 }
 
 #contactcontainer {
@@ -642,6 +589,7 @@ body.menu-open .mobile-menu {
   justify-content: center;
   font-size: 30px;
   gap: 10px;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .contacticons>a {
@@ -650,15 +598,9 @@ body.menu-open .mobile-menu {
 
 
 }
-
-/* .contacticons>a:hover{
-  color: rgb(235, 14, 125);
-} */
-/* CSS ANIMATIONS */
 .layers {
   position: relative;
 }
-
 .layers::before,
 .layers::after {
   content: attr(data-text);
@@ -1306,7 +1248,7 @@ body.menu-open .mobile-menu {
 
   #Contactdiv {
    padding: 0;
-   border: 1px solid white;
+   
 
     height: 120vh;
     width: 100vw;
@@ -1368,12 +1310,16 @@ body.menu-open .mobile-menu {
     display: flex;
     align-items: center;
     justify-content:flex-start;
-    font-size: 30px;
+    font-size: 20px;
     gap: 10px;
     padding: 0;
     font-family: 'Orbitron', sans-serif;
    
    
+  }
+  #Contactdiv>h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
   }
 
   .contacticons>h5 {

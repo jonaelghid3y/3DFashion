@@ -112,21 +112,21 @@ export default function AboutText({ section, onSectionChange }) {
             whileHover="hover"
             whileTap="tap"
           >
-            <AiOutlineInstagram color='white' size={40} />
+            <AiOutlineInstagram color='white' size={30} />
           </motion.div>
           <motion.div
             variants={iconVariants}
             whileHover="hover"
             whileTap="tap"
           >
-            <AiOutlineYoutube color='white' size={40} />
+            <AiOutlineYoutube color='white' size={30} />
           </motion.div>
           <motion.div
             variants={iconVariants}
             whileHover="hover"
             whileTap="tap"
           >
-            <AiOutlineMail color='white' size={40} />
+            <AiOutlineMail color='white' size={30} />
           </motion.div>
         </motion.div>
       </motion.div>
