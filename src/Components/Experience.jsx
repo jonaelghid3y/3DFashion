@@ -215,7 +215,7 @@ useEffect(() => {
             <LightWithHelper />
             <LightWithHelper2 />
             <PresentationControls
-                speed={1}
+                speed={1.5}
                 global
                 zoom={0.9}
                 polar={[0, Math.PI / 20]}

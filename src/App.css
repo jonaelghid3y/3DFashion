@@ -6,6 +6,9 @@
   font-family: 'Anurati';
   src: url('/Anurati-Regular.otf') format('opentype');
 }
+*{
+  touch-action: none;
+}
 
 #root,
 body,
@@ -13,11 +16,16 @@ html {
 
   margin: 0;
   padding: 0;
+ 
+}
+canvas{
+  touch-action: none;
 }
 
 .App {
   width: 100vw;
   height: 100vh;
+
 }
 
 ::-webkit-scrollbar-thumb {
@@ -41,6 +49,7 @@ html {
   position: absolute;
   top: 0;
   left: 0;
+  touch-action: none;
 }
 
 .ripple__rounds {
