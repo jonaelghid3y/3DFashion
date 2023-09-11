@@ -36,10 +36,6 @@ export const ScrollManager = (props) => {
       return;
     }
 
-    const scrollDelta = Math.abs(data.scroll.current - lastScroll.current);
-    const threshold = section === 1 ? 50 : 10; // Adjust the values as needed
-    if (scrollDelta < threshold) return;
-
     const isScrollingDown = data.scroll.current > lastScroll.current;
     const isScrollingUp = data.scroll.current < lastScroll.current;
 
