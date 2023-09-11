@@ -176,19 +176,9 @@ export default function AboutText({ section, onSectionChange }) {
 
           <motion.div className='contacticons'>
             <h5>Arian:</h5>
-            <a href="https://www.linkedin.com/in/jonael-ghidey-51a780239/" target="_blank">
+            <a href="https://www.linkedin.com/in/arian-moeini-50167b265" target="_blank">
               <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} >
                 <AiFillLinkedin className='contacticons' />
-              </motion.div>
-            </a>
-            <a href="https://github.com/jonaelghid3y" target="_blank">
-              <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} >
-                <AiFillGithub className='contacticons' />
-              </motion.div>
-            </a>
-            <a href="https://frontendjoni.vercel.app/" target="_blank">
-              <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} >
-                <BsFillBriefcaseFill className='contacticons' />
               </motion.div>
             </a>
           </motion.div>
