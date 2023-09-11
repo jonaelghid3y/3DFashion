@@ -1202,7 +1202,7 @@ body.menu-open .mobile-menu {
   }
 
   .configuratorSectionValues {
-    border: 1px solid white;
+  
     width: 30vw;
     height: 30px;
     flex-direction: row;
@@ -1284,7 +1284,7 @@ body.menu-open .mobile-menu {
    padding: 0;
    
 
-    height: 120vh;
+    height: 100vh;
     width: 100vw;
     color: white;
     display: flex;
