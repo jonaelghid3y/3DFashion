@@ -215,12 +215,12 @@ useEffect(() => {
             <LightWithHelper />
             <LightWithHelper2 />
             <PresentationControls
-                speed={1.5}
+                speed={1.2}
                 global
                 zoom={0.9}
                 polar={[0, Math.PI / 20]}
                 touch-action='none'
-                enabled={currentSection === 1 && !isMobile}
+                enabled={currentSection === 1 }
                 snap={true}
             >
                 <mesh ref={modelRef}  position={[0, -11.7, 0]} scale={isMobile? 2.5:3} rotation={[0.05, 0, 0]} >
