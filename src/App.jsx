@@ -44,7 +44,7 @@ function App() {
           )}
         </AnimatePresence>
         <Configurator section={section} />
-        <Canvas className='touch' >
+        <Canvas className='touch'  >
           <ScrollControls pages={4} damping={0.1}>
             <ScrollManager section={section} onSectionChange={setSection} />
             <color attach="background" args={["#101010"]} />

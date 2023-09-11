@@ -6,9 +6,7 @@
   font-family: 'Anurati';
   src: url('/Anurati-Regular.otf') format('opentype');
 }
-*{
-  touch-action: none;
-}
+
 
 #root,
 body,
@@ -17,6 +15,9 @@ html {
   margin: 0;
   padding: 0;
  
+}
+.touch{
+  touch-action: none;
 }
 canvas{
   touch-action: none;
