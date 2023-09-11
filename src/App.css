@@ -179,6 +179,8 @@ body {
   font-weight: bold;
   text-transform: uppercase;
   font-size: 17;
+  padding: 0;
+  margin: 0;
 }
 
 #byxTitle {
@@ -380,10 +382,14 @@ body.menu-open .mobile-menu {
   font-family: 'Anurati', sans-serif;
 
 }
+#landingPageText>h2{
+  filter: drop-shadow(0 1px 3px)
+}
 
 #LandingPageName {
   font-size: 180px;
-
+  filter: drop-shadow(0 1px 2px)
+ 
 }
 
 #iconDiv {
@@ -1164,30 +1170,60 @@ body.menu-open .mobile-menu {
     justify-content: center;
     width: 35vw;
   }
+  #maleIcon{
+    width: 20px;
+    height: 20px;
+  
+  }
+  #femaleIcon{
+    width: 20px;
+    height: 20px;
+  }
+  #byxTitle {
+    width: 20px;
+    height: 20px;
+  }
+  
+  #jackaTitle {
+    width: 20px;
+    height: 20px;
+
+  }
+  
+  #skoTitle {
+    width: 20px;
+    height: 20px;
+  
+  }
+  
+  #hatTitle {
+    width: 20px;
+    height: 20px;
+  }
 
   .configuratorSectionValues {
-
-    width: 300px;
+    border: 1px solid white;
+    width: 30vw;
+    height: 30px;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
     white-space: nowrap;
-    margin-top: 10px;
     gap: 10px;
+    margin-top: 1px;
   }
 
-  .itemDot {
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
-    border: solid 2px rgb(132, 124, 124)
-  }
+
 
   .configuratorSectionTitle {
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 13px;
+    text-align: center;
+    font-size: 10px;
+    height: 20px;
+
+
 
 
   }
