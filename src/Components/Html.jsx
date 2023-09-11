@@ -3,9 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { AiOutlineInstagram } from 'react-icons/ai'
 import { AiOutlineYoutube } from 'react-icons/ai'
 import { AiOutlineMail } from 'react-icons/ai'
-import { AiFillLinkedin, AiFillGithub } from 'react-icons/ai';
+import { AiFillLinkedin, AiFillGithub, AiOutlineArrowDown } from 'react-icons/ai';
 import { BsFillBriefcaseFill } from 'react-icons/bs';
+import { useEffect, useState } from 'react'
+
 import Header from './Header'
+import { Center } from '@react-three/drei'
 
 export default function AboutText({ section, onSectionChange }) {
 
@@ -67,9 +70,51 @@ export default function AboutText({ section, onSectionChange }) {
       }
     }
   };
+  const [showHelpText, setShowHelpText] = useState(true);
+
+  useEffect(() => {
+      const timer = setTimeout(() => {
+          setShowHelpText(false);
+      }, 10000);
+
+      return () => clearTimeout(timer);
+  }, []);
+  const fadeInOut = {
+    animate: {
+        opacity: [0.5, 1, 0.5],
+        scale: [0.95, 1, 0.95],
+        transition: {
+            opacity: { repeat: Infinity, duration: 2, repeatType: 'loop' },
+            scale: { repeat: Infinity, duration: 2, repeatType: 'loop' },
+            times: [0, 0.5, 1]
+        }
+    },
+    exit: {
+        opacity: 0,
+        scale: 0.95,
+        transition: { duration: 1 }
+    }
+};
+
   return (
     <>
       <Header section={section} onSectionChange={onSectionChange} />
+      <AnimatePresence>
+      {showHelpText && (
+        <motion.div
+          id='helpText'
+          key="animatedDiv"
+          variants={fadeInOut}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+        >
+          <h2>Swipe once to change section </h2>
+          <AiOutlineArrowDown size={30} />
+        </motion.div>
+      )}
+    </AnimatePresence>
+
       <motion.div
         id="landingPageText"
         initial="hidden"
@@ -102,7 +147,7 @@ export default function AboutText({ section, onSectionChange }) {
             whileTap="tap"
           >
             <a href='https://www.instagram.com/' target='blank'>
-            <AiOutlineInstagram color='white' size={30} />
+              <AiOutlineInstagram color='white' size={30} />
             </a>
           </motion.div>
           <motion.div
@@ -111,7 +156,7 @@ export default function AboutText({ section, onSectionChange }) {
             whileTap="tap"
           >
             <a href='https://www.youtube.com/' target='blank'>
-            <AiOutlineYoutube color='white' size={30} />
+              <AiOutlineYoutube color='white' size={30} />
             </a>
           </motion.div>
           <motion.div
@@ -120,7 +165,7 @@ export default function AboutText({ section, onSectionChange }) {
             whileTap="tap"
           >
             <a href="mailto:jonaelghidey@hotmail.com">
-            <AiOutlineMail  color='white' size={30} />
+              <AiOutlineMail color='white' size={30} />
             </a>
           </motion.div>
         </motion.div>

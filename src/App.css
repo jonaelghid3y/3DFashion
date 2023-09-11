@@ -150,6 +150,15 @@ body {
   z-index: 1;
 
 }
+#helpText{
+  text-align: center;
+  font-size: 10px;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  position: fixed;
+  right: 15vw;
+  top: 70vh;
+}
 
 .configurator {
   font-family: 'Orbitron', sans-serif;
@@ -1049,6 +1058,11 @@ body.menu-open .mobile-menu {
     color: rgb(255, 255, 255);
     background-color: none;
     z-index: 1000;
+  }
+  #helpText{
+    
+    right: 15vw;
+    top: 80vh;
   }
 
   #landingPageText {
