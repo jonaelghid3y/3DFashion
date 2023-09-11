@@ -75,7 +75,7 @@ useEffect(() => {
         planeRef.current.position.set(loadingPosition.x, loadingPosition.y, loadingPosition.z);
         
         gsap.to(modelRef.current.position, {
-            duration: 1.8,
+            duration: 1,
             x: originalPosition.x,
             y: originalPosition.y,
             z: originalPosition.z,
