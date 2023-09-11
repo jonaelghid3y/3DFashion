@@ -3,17 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { AiOutlineInstagram } from 'react-icons/ai'
 import { AiOutlineYoutube } from 'react-icons/ai'
 import { AiOutlineMail } from 'react-icons/ai'
-
 import { AiFillLinkedin, AiFillGithub } from 'react-icons/ai';
 import { BsFillBriefcaseFill } from 'react-icons/bs';
-
-import { useInView } from 'react-intersection-observer';
 import Header from './Header'
 
 export default function AboutText({ section, onSectionChange }) {
-
-
-
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -63,12 +57,12 @@ export default function AboutText({ section, onSectionChange }) {
     }
   };
   const aboutVariants = {
-    hidden: { opacity: 0, y: -100 },  // start slightly to the left and faded out
+    hidden: { opacity: 0, y: -100 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 2,  // You can adjust the duration as needed
+        duration: 2,
         ease: "easeOut"
       }
     }
@@ -76,13 +70,10 @@ export default function AboutText({ section, onSectionChange }) {
   return (
     <>
       <Header section={section} onSectionChange={onSectionChange} />
-     
-  
       <motion.div
         id="landingPageText"
         initial="hidden"
         animate="visible"
-
         variants={containerVariants}
       >
         <div id="LandingPageName">
@@ -92,11 +83,9 @@ export default function AboutText({ section, onSectionChange }) {
               variants={itemVariants}
               className="hero glitch layers"
               data-text={char}
-
             >
               {char}
             </motion.span>
-
           ))}
         </div>
         <motion.h2
@@ -135,7 +124,7 @@ export default function AboutText({ section, onSectionChange }) {
           className='neonContainer'
           variants={neonVariants}
           initial="hidden"
-          animate={section === 1 ? "visible" : "hidden"}  // animate based on section value
+          animate={section === 1 ? "visible" : "hidden"}
         >
           <h1> AERO <br />
             武士
@@ -146,7 +135,7 @@ export default function AboutText({ section, onSectionChange }) {
         id="Aboutdiv"
         variants={aboutVariants}
         initial="hidden"
-        animate={section === 2 ? "visible" : "hidden"}  // animate based on section value
+        animate={section === 2 ? "visible" : "hidden"}
       >
         <h1>Collection</h1>
         <p>
@@ -154,18 +143,17 @@ export default function AboutText({ section, onSectionChange }) {
         </p>
       </motion.div>
 
-      <motion.div 
-      id="Contactdiv" 
-      initial='hidden'
-      variants={aboutVariants}
-      animate={section === 3 ? "visible" : "hidden"}>
+      <motion.div
+        id="Contactdiv"
+        initial='hidden'
+        variants={aboutVariants}
+        animate={section === 3 ? "visible" : "hidden"}>
         <h1>About us</h1>
         <p>
           We've blended the distinctiveness of fashion with the immersive 3D capabilities of Three.js (utilizing React Three Fiber) and Blender's intricate modeling. The outcome is a captivating 3D web experience that stands out. The dynamic visuals come alive with Three.js, complemented by the realism Blender adds to the fashion components. Merging these tools has been an exciting process.  For a deeper dive, you can check out our portfolios. Appreciate your interest!
         </p>
         <h2>ARIAN x FRONTENDJONI</h2>
 
-      
         <div id="contactcontainer">
           <motion.div className='contacticons'>
             <h5>Frontendjoni:</h5>
@@ -208,6 +196,5 @@ export default function AboutText({ section, onSectionChange }) {
         </div>
       </motion.div>
     </>
-
   )
 }

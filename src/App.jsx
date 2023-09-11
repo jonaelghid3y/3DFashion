@@ -13,39 +13,36 @@ import AboutText from './Components/Html'
 function App() {
   const [section, setSection] = useState(0)
   const [showLoader, setShowLoader] = useState(true);
- 
+
   const loaderVariants = {
     visible: { opacity: 1 },
     hidden: { opacity: 0 }
   };
+
   useEffect(() => {
     setTimeout(() => {
       setShowLoader(false);
     }, 4000);
   }, []);
 
-
-
-
-
   return (
     <CostumizeProvider>
       <div className='App'>
-      <AnimatePresence>
-        {showLoader && (
-          <motion.div
-            id="custom__ripple_Loader"
-            className="box"
-            initial="visible"
-            animate="visible"
-            exit="hidden"
-            variants={loaderVariants}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="ripple__rounds"></div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        <AnimatePresence>
+          {showLoader && (
+            <motion.div
+              id="custom__ripple_Loader"
+              className="box"
+              initial="visible"
+              animate="visible"
+              exit="hidden"
+              variants={loaderVariants}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="ripple__rounds"></div>
+            </motion.div>
+          )}
+        </AnimatePresence>
         <Configurator section={section} />
         <Canvas>
           <ScrollControls pages={4} damping={0.1}>
@@ -56,13 +53,10 @@ function App() {
               <AboutText section={section} onSectionChange={setSection} />
             </Scroll>
             <Scroll>
-
               <Experience section={section} />
-
             </Scroll>
           </ScrollControls>
         </Canvas>
-
       </div>
     </CostumizeProvider>
   )

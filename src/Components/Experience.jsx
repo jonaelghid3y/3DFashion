@@ -10,9 +10,6 @@ import { useHelper } from "@react-three/drei";
 import * as THREE from 'three';
 
 
-
-
-
 const Experience = ({ section }) => {
 
     const { material, color } = useCostumize();
@@ -21,28 +18,21 @@ const Experience = ({ section }) => {
     const isMobile = window.innerWidth < 768;
     const responsiveRatio = viewport.width / 12;
 
-
     // Adjust the camera's y position
 
     const currentSection = section
     const modelRef = useRef(null);
     const planeRef = useRef(null); // Create a reference for the mesh
 
-
     function LightWithHelper() {
         const light = useRef();
         const light2 = useRef();
-
         // useHelper(light, THREE.DirectionalLightHelper, 0.5);
-
         return <directionalLight ref={light} position={[-7, 0, 5]} intensity={3} color={'rgb(217, 7, 137)'} />;
     }
     function LightWithHelper2() {
-
         const light2 = useRef();
-
         // useHelper(light2, THREE.DirectionalLightHelper, 0.5);
-
         return <directionalLight ref={light2} position={[1, -10, 15]} intensity={6} />;
     }
     const loadingPosition = { x: 0, y: -5, z: 0 };
@@ -78,18 +68,12 @@ const Experience = ({ section }) => {
         z: targetPlaneRotation.z
     };
 
-   
-// ... [All the initializations and variable declarations]
-
 useEffect(() => {
-    // Initial loading animation
+    
     if (modelRef.current && planeRef.current && section === 0) {
         modelRef.current.position.set(loadingPosition.x, loadingPosition.y, loadingPosition.z);
         planeRef.current.position.set(loadingPosition.x, loadingPosition.y, loadingPosition.z);
         
-      
-
-        // Position
         gsap.to(modelRef.current.position, {
             duration: 1.8,
             x: originalPosition.x,
@@ -107,7 +91,6 @@ useEffect(() => {
             ease: "power2.out"
         });
 
-        // Rotation (assuming no rotation needed initially, but adjust if required)
         gsap.to(modelRef.current.rotation, {
             duration: 1.8,
             x: originalRotation.x,
@@ -128,8 +111,6 @@ useEffect(() => {
 useEffect(() => {
     if (modelRef.current && planeRef.current) {
         if (section === 1) {
-            // Animate back to original positions and rotations
-            // Position
             gsap.to(modelRef.current.position, {
                 duration: 1.8,
                 x: originalPosition.x,
@@ -145,7 +126,6 @@ useEffect(() => {
                 ease: "power2.out"
             });
 
-            // Rotation
             gsap.to(modelRef.current.rotation, {
                 duration: 2,
                 x: originalRotation.x,
@@ -162,8 +142,7 @@ useEffect(() => {
             });
             
         } else if (section === 2) {
-            // Animate to target positions and rotations
-            // Position
+         
             gsap.to(modelRef.current.position, {
                 duration: 2,
                 x: targetPosition.x,
@@ -196,8 +175,7 @@ useEffect(() => {
             });
             
         } else if (section === 3) {
-            // Animate to further target positions and rotations
-            // Position
+         
             gsap.to(modelRef.current.position, {
                 duration: 1.5,
                 x: furtherTargetPosition.x,
@@ -213,7 +191,6 @@ useEffect(() => {
                 ease: "power2.out"
             });
 
-            // Rotation
             gsap.to(modelRef.current.rotation, {
                 duration: 2,
                 x: furtherTargetRotation.x,
@@ -232,17 +209,9 @@ useEffect(() => {
     }
 }, [section]);
 
-// ... [Rest of the component]
-
-
-
     return (
-        < >
-
-
-
+        <>
             <ambientLight intensity={3} />
-            {/* <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} /> */}
             <LightWithHelper />
             <LightWithHelper2 />
             <PresentationControls
@@ -253,47 +222,15 @@ useEffect(() => {
                 touch-action='none'
                 enabled={currentSection === 1}
                 snap={true}
-
-
             >
                 <mesh ref={modelRef}  position={[0, -11.7, 0]} scale={isMobile? 2.5:3} rotation={[0.05, 0, 0]} >
-
                     <Model  />
-
                 </mesh>
-
                 <mesh ref={planeRef} receiveShadow rotation={[-Math.PI / 2, 0, 0]} position-y={-10.68}>
-
                     <planeGeometry args={[100, 50]} />
                     <meshBasicMaterial receiveShadow side={2} color="#383838" />
-                    {/* <MeshReflectorMaterial
-                        blur={[300, 100]}
-                        resolution={800}
-                        mixBlur={1}
-                        mixStrength={40}
-                        roughness={1}
-                        depthScale={1.2}
-                        minDepthThreshold={0.4}
-                        maxDepthThreshold={1.4}
-                        color="#101010"
-                        metalness={0.5}
-                        side={2}
-                    /> */}
-
                 </mesh>
-
-
             </PresentationControls>
-
-
-
-
-
-
-
-
-
-
         </>
     );
 }

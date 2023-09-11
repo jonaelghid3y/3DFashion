@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { FaBars } from 'react-icons/fa';
-import { AiOutlineInstagram, AiOutlineYoutube, AiOutlineMail } from 'react-icons/ai';
 
 function Nav({ section, onSectionChange }) {
+    
     const [isOpen, setIsOpen] = useState(false);
+   
     useEffect(() => {
         if (isOpen) {
             document.body.classList.add('menu-open');
@@ -36,6 +37,7 @@ function Nav({ section, onSectionChange }) {
     };
 
     return (
+
         <motion.nav
             variants={navVariants}
             initial="hidden"
@@ -51,7 +53,6 @@ function Nav({ section, onSectionChange }) {
 
             </motion.div>
 
-            {/* Desktop Navigation */}
             <div id="länkContainer">
                 <motion.p
                     onClick={() => handleNavClick(1)}
@@ -94,7 +95,6 @@ function Nav({ section, onSectionChange }) {
             </div>
             <FaBars className="hamburger" onClick={() => setIsOpen(!isOpen)} />
 
-            {/* Mobile Navigation */}
             {isOpen && (
 
                 <div className="mobile-menu" >
@@ -137,13 +137,9 @@ function Nav({ section, onSectionChange }) {
                     >
                         Contact
                     </motion.p>
-
                 </div>
-
             )}
-
         </motion.nav>
     );
 }
-
 export default Nav;

@@ -15,6 +15,20 @@ const Configurator = ({ section }) => {
         },
         exit: { x: '100%', opacity: 0 }
     };
+    const buttonVariants = {
+        hoverEffect: {
+          
+            opacity: [0.6, 0.8, 0.6],
+            scale: [0.95, 1.05, 0.95]
+        },
+        static: { y: 0, opacity: 1, scale: 1.05 }
+    };
+
+    const continuousTransition = {
+        y: { repeat: Infinity, duration: 2, repeatType: 'loop' },
+        opacity: { repeat: Infinity, duration: 2, repeatType: 'loop' },
+        scale: { repeat: Infinity, duration: 2, repeatType: 'loop' }
+    };
 
     const {
         model,
@@ -46,12 +60,16 @@ const Configurator = ({ section }) => {
 
     return (
         <div className={`configuratorContainer ${isMobileMenuOpen ? 'open' : ''}`}>
-            
-            {/* Button to toggle configurator visibility, only on mobile and when section is 1 */}
             {section === 1 && (
-                <button className="toggle-configurator-btn" onClick={() => setConfiguratorVisible(!isConfiguratorVisible)}>
+                <motion.button className="toggle-configurator-btn" onClick={() => setConfiguratorVisible(!isConfiguratorVisible)}
+                variants={buttonVariants}
+                initial="hoverEffect"
+                animate={isConfiguratorVisible ? 'static' : 'hoverEffect'}
+                transition={isConfiguratorVisible ? {} : continuousTransition}
+                
+                >
                     {isConfiguratorVisible ? 'Hide Configurator' : 'Costumize'}
-                </button>
+                </motion.button>
             )}
 
             <AnimatePresence>
